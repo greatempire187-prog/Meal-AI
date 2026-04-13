@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt to Meal Planner</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">
+                    <span class="logo-icon"></span>
+                    Receipt to Meal Planner
+                </h1>
+                <p class="tagline">Transform your grocery receipts into personalized meal plans</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="upload-section" id="uploadSection">
+                <div class="upload-card">
+                    <h2>Upload Your Receipt</h2>
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-content">
+                            <div class="upload-icon"></div>
+                            <p class="upload-text">Drag and drop your receipt image here</p>
+                            <p class="upload-subtext">or</p>
+                            <button class="upload-btn" id="uploadBtn">Choose File</button>
+                            <input type="file" id="fileInput" accept="image/*" capture="environment" hidden>
+                        </div>
+                    </div>
+                    <div class="upload-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="manualEntry">
+                            <span class="checkmark"></span>
+                            Enter items manually instead
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Manual Entry Section -->
+            <section class="manual-entry-section hidden" id="manualEntrySection">
+                <div class="manual-entry-card">
+                    <h2>Enter Grocery Items</h2>
+                    <div class="manual-entry-form">
+                        <div class="form-group">
+                            <label for="itemInput">Item Name</label>
+                            <input type="text" id="itemInput" placeholder="e.g., Chicken breast, Tomatoes, Rice">
+                        </div>
+                        <div class="form-group">
+                            <label for="quantityInput">Quantity</label>
+                            <input type="text" id="quantityInput" placeholder="e.g., 2 lbs, 3 pieces, 1 gallon">
+                        </div>
+                        <button class="add-item-btn" id="addItemBtn">Add Item</button>
+                    </div>
+                    <div class="items-list" id="itemsList">
+                        <h3>Items Added:</h3>
+                        <div class="items-container" id="itemsContainer"></div>
+                    </div>
+                    <button class="generate-plan-btn" id="generatePlanBtn">Generate Meal Plan</button>
+                </div>
+            </section>
+
+            <!-- Processing Section -->
+            <section class="processing-section hidden" id="processingSection">
+                <div class="processing-card">
+                    <div class="processing-animation">
+                        <div class="spinner"></div>
+                    </div>
+                    <h2>Processing Your Receipt</h2>
+                    <p>Our AI is analyzing your grocery items and creating personalized meal suggestions...</p>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section hidden" id="resultsSection">
+                <div class="results-header">
+                    <h2>Your Personalized Meal Plan</h2>
+                    <button class="new-plan-btn" id="newPlanBtn">Create New Plan</button>
+                </div>
+                
+                <!-- Parsed Items Summary -->
+                <div class="items-summary">
+                    <h3>Grocery Items Found</h3>
+                    <div class="items-grid" id="parsedItemsGrid"></div>
+                </div>
+
+                <!-- Meal Plan -->
+                <div class="meal-plan">
+                    <h3>7-Day Meal Plan</h3>
+                    <div class="meal-plan-grid" id="mealPlanGrid">
+                        <!-- Meals will be generated here -->
+                    </div>
+                </div>
+
+                <!-- Shopping List for Missing Items -->
+                <div class="shopping-list">
+                    <h3>Additional Items You Might Need</h3>
+                    <div class="shopping-list-content" id="shoppingListContent"></div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 Receipt to Meal Planner. Powered by AI technology.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
